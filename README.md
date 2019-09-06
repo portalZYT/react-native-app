@@ -23,6 +23,21 @@ nodejs+React Native开发的APP的项目创建
 
 2.react-native init AwesomeProject
 
+## react-native 项目运行报错的处理方法
+
+1.生工程文件后新建assets：进入\android\app\src\main新建assets文件夹
+
+2.生成index.android.bundle文件:Dos下进入AwesomeProject项目文件夹下执行如下语句：
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+3.然后你就可以在项目文件夹AwesomeProject\android\app\src\main\assets下看到index.android.bundle文件了,说明就成功了.
+
+4.先用Android Studio 打开android文件，生成gradle配置文件,然后在工程根目录下 react-native start,
+然后点击Android Studio的运行按钮,启动模拟器。
+
+5.在模拟器中,按Ctrl+M打开热更新，修改代码实时更新。
+
+
 # Node Express开发后端接口
 
 1.npm install express-generator -g
