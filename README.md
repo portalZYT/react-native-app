@@ -30,9 +30,9 @@ nodejs+React Native开发的APP的环境配置
 | **CLASSPATH** | **.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%ANT_HOME%\lib;** | |
 | **PATH** | **%JAVA_HOME%\bin;** | Path |
 
-5.安装Python2
+5.安装Python2,从官网下载安装即可
 
-nodejs+React Native开发的APP的项目创建
+6.nodejs+React Native开发的APP的项目创建
 
 1.npm install -g yarn react-native-cli
 
