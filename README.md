@@ -3,10 +3,10 @@ nodejs+React Native开发的APP的环境配置
 
 1.先安装Android Studio 安装时一定要选择
 
-Android SDK
-Android SDK Platform
-Performance (Intel ® HAXM) (AMD 处理器看这里)
-Android Virtual Device
+* Android SDK
+* Android SDK Platform
+* Performance (Intel ® HAXM) (AMD 处理器看这里)
+* Android Virtual Device
 
 2.安装AVD Manager(安卓模拟机)点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择Pie API Level 28 image.
 
@@ -21,6 +21,8 @@ Android Virtual Device
 | **PATH** | **%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;** | Path |
 
 4.下载JAVA JDK安装，找到JAVA JDK路径配置环境变量
+
+* 安装 Java-SDK，正确配置系统环境变量 JAVA_HOME、CLASSPATH、加入 PATH：
 
 | 系统环境变量 | 新增字符 | 原值 |
 |:---|:---|:---|
