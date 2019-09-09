@@ -60,7 +60,6 @@ router.post('/write', function (req, res, next) {
             info: '提交的字段不全'
         });
     }
-    console.log(111,PATH + type + '.json');
     // 1）读取文件
     fs.readFile(PATH + type + '.json', function (err, data) {
         if (err) {

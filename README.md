@@ -13,7 +13,20 @@ Android Virtual Device
 3.配置Android SDK环境变量,在Android Studio中SDK Manager
 中复制Android SDK 路径配置环境变量
 
-4.下载JAVA JDK，配置JAVA JDK路径
+* 安装 Android-SDK，正确配置系统环境变量 ANDROID_HOME、加入 PATH：
+
+| 系统环境变量 | 新增字符 | 原值 |
+|:---|:---|:---|
+| **ANDROID_HOME** | **D:\Android\sdk** |  |
+| **PATH** | **%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;** | Path |
+
+4.下载JAVA JDK安装，找到JAVA JDK路径配置环境变量
+
+| 系统环境变量 | 新增字符 | 原值 |
+|:---|:---|:---|
+| **JAVA_HOME** | **C:\Java\jdk1.8.0_121** | |
+| **CLASSPATH** | **.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%ANT_HOME%\lib;** | |
+| **PATH** | **%JAVA_HOME%\bin;** | Path |
 
 5.安装Python2
 
