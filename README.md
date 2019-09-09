@@ -34,9 +34,9 @@ nodejs+React Native开发的APP的环境配置
 
 6.nodejs+React Native开发的APP的项目创建
 
-1.npm install -g yarn react-native-cli
+* npm install -g yarn react-native-cli
 
-2.react-native init AwesomeProject
+* react-native init AwesomeProject
 
 ## react-native 项目运行报错的处理方法
 
