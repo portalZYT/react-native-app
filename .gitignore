@@ -61,3 +61,6 @@ buck-out/
 # MyAppService
 /MyAppService/node_modules/
 
+# MyApp
+/MyApp/node_modules/package-lock.json
+
