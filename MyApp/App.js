@@ -1,112 +1,112 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Fragment} from 'react';
+import React, {Component} from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+    View,
+    Image,
+    StyleSheet,
 } from 'react-native';
+// 底部导航栏
+import TabNavigator from 'react-native-tab-navigator';
+// 首页
+import HomePage from './pages/home';
+// 报表页面
+import ReportPage from './pages/report';
+// 我的
+import MyPage from './pages/mypage';
+// 资料库
+import FolderPage from './pages/folder';
+// 日程
+import DailyPage from './pages/daily';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const dataSource = [
+    {
+        icon: require('./img/tab_daily_gray.png'),
+        selectedIcon: require('./img/tab_daily_blue.png'),
+        tabPage: 'Daily',
+        tabName: '日程',
+        component: DailyPage,
+    },
+    {
+        icon: require('./img/tab_folder_gray.png'),
+        selectedIcon: require('./img/tab_folder_blue.png'),
+        tabPage: 'Folder',
+        tabName: '资料库',
+        component: FolderPage
+    },
+    {
+        icon: require('./img/tab_crm_gray.png'),
+        selectedIcon: require('./img/tab_crm_blue.png'),
+        tabPage: 'Home',
+        tabName: '首页',
+        component: HomePage
+    },
+    {
+        icon: require('./img/tab_report_gray.png'),
+        selectedIcon: require('./img/tab_report_blue.png'),
+        tabPage: 'Report',
+        tabName: '报表看板',
+        component: ReportPage
+    },
+    {
+        icon: require('./img/tab_me_gray.png'),
+        selectedIcon: require('./img/tab_me_blue.png'),
+        tabPage: 'My',
+        tabName: '我的',
+        component: MyPage
+    }
+];
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+var navigation = null;
+
+export default class MainPage extends Component {
+    constructor(props) {
+        super(props);
+        navigation = this.props.navigation;
+        this.state = {
+            selectedTab: 'Home'
+        };
+    }
+
+    render() {
+
+        let tabViews = dataSource.map((item, i) => {
+            return (
+                <TabNavigator.Item
+                    title={item.tabName}
+                    selected={this.state.selectedTab === item.tabPage}
+                    titleStyle={{color: '#999999'}}
+                    selectedTitleStyle={{color: '#419de7'}}
+                    renderIcon={() => <Image style={styles.tabIcon} source={item.icon}/>}
+                    renderSelectedIcon={() => <Image style={styles.tabIcon} source={item.selectedIcon}/>}
+                    tabStyle={{alignSelf: 'center'}}
+                    onPress={() => {
+                        this.setState({selectedTab: item.tabPage})
+                    }}
+                    key={i}
+                >
+                    <item.component navigation={navigation}/>
+                </TabNavigator.Item>
+            );
+        });
+
+        return (
+            <View style={styles.container}>
+                <TabNavigator
+                    hidesTabTouch={true}
+                >
+                    {tabViews}
+                </TabNavigator>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+        );
+    }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+    },
+    tabIcon: {
+        width: 23,
+        height: 23,
+    }
 });
-
-export default App;

@@ -61,6 +61,8 @@ react-native bundle --platform android --dev false --entry-file index.js --bundl
 
 3.npm i supervisor -g 热更新,用supervisor bin/www启动项目，更改代码实时更新
 
+4 npm i express-session --save
+
 
 
 
