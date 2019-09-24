@@ -3,30 +3,28 @@ import React, {Component} from 'react';
 import {
     Text,
     View,
+    StyleSheet,
     TouchableOpacity,
     DeviceEventEmitter
 } from 'react-native';
+import BoyPage from "../testpage/boy";
 
-export default class BoyPage extends Component {
-    constructor(props) {
-        super(props);
-        const {navigation} = this.props;
-        let yy = navigation.getParam("params");
-        console.log(1111111, yy);
-    }
-
+export default class CenterPage extends Component {
     render() {
         return (
             <View>
                 <TouchableOpacity onpress={
                     () => {
-                        this.props.navigation.goBack();
+                        this.props.navigation.navigate('BoyPage',
+                            {
+                                params: 'qqqqqqqqqqqqqqqqqq',
+                            })
                     }
                 }>
-                    {/*<Text>{yy}</Text>*/}
-                    <Text>点击返回</Text>
+                    <Text>点击跳转</Text>
                 </TouchableOpacity>
             </View>
         )
     }
 }
+

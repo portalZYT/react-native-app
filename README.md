@@ -38,7 +38,9 @@ nodejs+React Native开发的APP的环境配置
 
 * react-native init AwesomeProject
 
-## react-native 项目运行报错的处理方法
+# react-native 报错的处理方法
+
+#### (1) 项目运行时报错的处理办法
 
 1.生工程文件后新建assets：进入\android\app\src\main新建assets文件夹
 
@@ -51,6 +53,16 @@ react-native bundle --platform android --dev false --entry-file index.js --bundl
 然后点击Android Studio的运行按钮,启动模拟器。
 
 5.在模拟器中,按Ctrl+M打开热更新，修改代码实时更新。
+
+#### (2) 在安装了npm install --save react-navigation后跑项目然后就红屏了
+
+安装触摸方式(需要执行以下方法)
+
+npm install --save react-native-gesture-handler
+
+react-native link react-native-gesture-handler
+
+就可以了
 
 
 # Node Express开发后端接口
