@@ -3,26 +3,26 @@ import React, {Component} from 'react';
 import {
     Text,
     View,
-    StyleSheet,
     TouchableOpacity,
-    DeviceEventEmitter
+    Button
 } from 'react-native';
 import BoyPage from "../testpage/boy";
 
 export default class CenterPage extends Component {
     render() {
+        const {navigation} = this.props;
         return (
             <View>
-                <TouchableOpacity onpress={
-                    () => {
-                        this.props.navigation.navigate('BoyPage',
-                            {
-                                params: 'qqqqqqqqqqqqqqqqqq',
-                            })
-                    }
-                }>
-                    <Text>点击跳转</Text>
-                </TouchableOpacity>
+                <Text>欢迎来到页面</Text>
+                <Button title='去boy页面(导航栏页面传值)'
+                        onPress={() => {
+                            navigation.navigate('BoyPage', {name: '动态'})
+                        }}/>
+                <Button title='去girl页面(导航栏设置值)'
+                        onPress={() => {
+                            navigation.navigate('GirlPage', {name: 'rgggggggg'})
+                        }}/>
+
             </View>
         )
     }

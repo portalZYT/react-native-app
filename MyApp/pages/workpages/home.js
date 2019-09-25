@@ -55,19 +55,14 @@ const dataSource = [
     }
 ];
 
-var navigation = null;
 
 export default class HomePage extends Component {
-    constructor(props) {
-        super(props);
-        navigation = this.props.navigation;
-        this.state = {
-            selectedTab: 'Center'
-        };
-    }
+    state = {
+        selectedTab: 'Center'
+    };
 
     render() {
-
+        const {navigation} = this.props;
         let tabViews = dataSource.map((item, i) => {
             return (
                 <TabNavigator.Item
