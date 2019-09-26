@@ -8,7 +8,8 @@ nodejs+React Native开发的APP的环境配置
 * Performance (Intel ® HAXM) (AMD 处理器看这里)
 * Android Virtual Device
 
-2.安装AVD Manager(安卓模拟机)点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择Pie API Level 28 image.
+2.安装AVD Manager(安卓模拟机)点击"Create Virtual Device..."，
+然后选择所需的设备类型并点击"Next"，然后选择Pie API Level 28 image.
 
 3.配置Android SDK环境变量,在Android Studio中SDK Manager
 中复制Android SDK 路径配置环境变量
@@ -64,8 +65,12 @@ react-native link react-native-gesture-handler
 
 就可以了
 
+## react-native打包apk 
 
-# Node Express开发后端接口
+见官网 https://reactnative.cn/docs/signed-apk-android/
+
+
+## Node Express开发后端接口
 
 1.npm install express-generator -g
 
@@ -74,6 +79,9 @@ react-native link react-native-gesture-handler
 3.npm i supervisor -g 热更新,用supervisor bin/www启动项目，更改代码实时更新
 
 4 npm i express-session --save
+
+
+
 
 
 
